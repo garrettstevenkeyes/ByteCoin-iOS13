@@ -29,6 +29,7 @@ struct CoinManager {
                 let dataAsString = String(data: data!, encoding: .utf8)
                 print(dataAsString!)
                 
+                
             }
             task.resume()
         }
