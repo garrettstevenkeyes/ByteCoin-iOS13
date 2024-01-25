@@ -9,7 +9,7 @@
 import Foundation
 
 protocol CoinManagerDelegate {
-    func didUpdatePrice(price:String, currency: String)
+    func didUpdatePrice(bitcoinPrice:String, currency: String)
     func didFailWithError(error: Error)
 }
 struct CoinManager {
@@ -34,7 +34,7 @@ struct CoinManager {
                     if let bitcoinPrice = self.parseJSON(safeData){
                         let priceString = String(format: "%.2f", bitcoinPrice)
                         
-                        self.delegate?.didUpdatePrice(price: priceString, currency: currency)
+                        self.delegate?.didUpdatePrice(bitcoinPrice: priceString, currency: currency)
                     }
                 }
             }
@@ -54,9 +54,5 @@ struct CoinManager {
             print(error)
             return nil
         }
-    }
-    
-    func performRequest(with urlString: String){
-        
     }
 }
